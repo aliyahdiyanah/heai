@@ -1,0 +1,705 @@
+/* =====================================================
+   HE AI DATA CENTRE - GLOBAL THEME & DASHBOARD STYLING
+===================================================== */
+
+:root {
+  --ink: #0A120E;
+  --ink-2: #101B15;
+  --ink-card: #14221A;
+  --gem: #17A468;
+  --gem-bright: #2BD08C;
+  --gold: #C6A45C;
+  --gold-soft: #E3CD97;
+  --text-inv: #EAF2EC;
+  --text-inv-soft: #A9BDB1;
+  --border-color: rgba(201, 207, 212, 0.1);
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--ink);
+  color: var(--text-inv);
+  min-height: 100vh;
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+
+/* =====================================================
+   SIDEBAR STYLING
+===================================================== */
+
+.sidebar {
+  width: 260px;
+  background: var(--ink-2);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+
+  /* Sidebar animation */
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-inv);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+  text-decoration: none;
+}
+
+.sidebar-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: var(--text-inv-soft);
+  text-decoration: none;
+  font-size: 0.88rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a.active {
+  background: rgba(23, 164, 104, 0.15);
+  color: var(--gem-bright);
+}
+
+.sidebar-footer {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-info .company {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-inv);
+}
+
+.user-info .id-label {
+  font-size: 0.72rem;
+  color: var(--text-inv-soft);
+}
+
+.logout-btn {
+  color: #ff6b6b;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+
+/* =====================================================
+   MAIN CONTENT AREA
+===================================================== */
+
+.main-content {
+  margin-left: 260px;
+  flex-grow: 1;
+  padding: 2rem 2.5rem;
+  overflow-y: auto;
+
+  /* Animation bila sidebar dibuka/tutup */
+  transition: margin-left 0.3s ease;
+}
+
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.top-bar h1 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+/* =====================================================
+   SEARCH BOX
+===================================================== */
+
+.search-box {
+  background: var(--ink-card);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  height: 38px;
+  width: 240px;
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  color: var(--text-inv);
+  outline: none;
+  font-size: 0.85rem;
+  width: 100%;
+  margin-left: 6px;
+}
+
+
+/* =====================================================
+   ACTION BUTTON
+===================================================== */
+
+.action-icon-btn {
+  background: var(--ink-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-inv);
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.2s ease;
+}
+
+.action-icon-btn:hover {
+  background: rgba(23, 164, 104, 0.15);
+  border-color: rgba(43, 208, 140, 0.3);
+  color: var(--gem-bright);
+}
+
+
+/* =====================================================
+   DEMO NOTICE
+===================================================== */
+
+.demo-notice {
+  background: rgba(198, 164, 92, 0.1);
+  border: 1px solid rgba(198, 164, 92, 0.3);
+  color: var(--gold-soft);
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+
+/* =====================================================
+   LAUNCH INSTANCE SPECIFIC STYLING
+===================================================== */
+
+.launch-form-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.launch-config-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.config-section {
+  background: var(--ink-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.config-section h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.config-section h3 span {
+  color: var(--gold);
+}
+
+
+/* =====================================================
+   GPU OPTIONS GRID
+===================================================== */
+
+.gpu-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.gpu-option-card {
+  background: var(--ink-2);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.gpu-option-card:hover,
+.gpu-option-card.active {
+  border-color: var(--gem-bright);
+  background: rgba(23, 164, 104, 0.05);
+}
+
+.gpu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gpu-header strong {
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.badge-available {
+  font-size: 10px;
+  background: rgba(43, 208, 140, 0.15);
+  color: var(--gem-bright);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.badge-coming {
+  font-size: 10px;
+  background: rgba(198, 164, 92, 0.15);
+  color: var(--gold-soft);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.gpu-specs {
+  font-size: 0.82rem;
+  color: var(--text-inv-soft);
+}
+
+.gpu-price {
+  font-size: 0.85rem;
+  color: var(--gold-soft);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+
+/* =====================================================
+   QUANTITY OPTIONS
+===================================================== */
+
+.quantity-options {
+  display: flex;
+  gap: 10px;
+}
+
+.qty-btn {
+  background: var(--ink-2);
+  border: 1px solid var(--border-color);
+  color: var(--text-inv);
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.88rem;
+  transition: all 0.2s;
+}
+
+.qty-btn:hover,
+.qty-btn.active {
+  background: var(--gold);
+  color: var(--ink);
+  border-color: var(--gold);
+}
+
+
+/* =====================================================
+   DATA CENTRE OPTIONS
+===================================================== */
+
+.dc-options {
+  display: flex;
+}
+
+.dc-card {
+  background: var(--ink-2);
+  border: 1px solid var(--gem-bright);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   SOFTWARE IMAGE GRID
+===================================================== */
+
+.image-options-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.image-card {
+  background: var(--ink-2);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 0.2s;
+}
+
+.image-card:hover,
+.image-card.active {
+  border-color: var(--gem-bright);
+  background: rgba(23, 164, 104, 0.05);
+}
+
+.image-card strong {
+  color: #fff;
+  font-size: 0.88rem;
+}
+
+.image-card span {
+  font-size: 0.75rem;
+  color: var(--text-inv-soft);
+}
+
+
+/* =====================================================
+   FORM ROW GRID
+===================================================== */
+
+.form-row-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.82rem;
+  color: var(--text-inv-soft);
+}
+
+.form-input {
+  background: var(--ink-2);
+  border: 1px solid var(--border-color);
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  outline: none;
+  width: 100%;
+}
+
+.form-input:focus {
+  border-color: var(--gem-bright);
+}
+
+
+/* =====================================================
+   RIGHT SUMMARY COLUMN
+===================================================== */
+
+.launch-summary-column {
+  position: sticky;
+  top: 24px;
+}
+
+.summary-card-box {
+  background: var(--ink-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.summary-card-box h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-inv-soft);
+}
+
+.summary-line strong {
+  color: #fff;
+}
+
+.summary-divider {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 8px 0;
+}
+
+.estimated-total-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 4px 0 12px 0;
+}
+
+.estimated-total-block span {
+  font-size: 0.8rem;
+  color: var(--text-inv-soft);
+}
+
+.estimated-total-block h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.estimated-total-block small {
+  font-size: 0.72rem;
+  color: var(--text-inv-soft);
+  line-height: 1.3;
+}
+
+.launch-submit-btn {
+  background: var(--gold);
+  color: var(--ink);
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.launch-submit-btn:hover {
+  background: var(--gold-soft);
+}
+
+.launch-note {
+  font-size: 0.75rem;
+  color: var(--text-inv-soft);
+  text-align: center;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+
+/* =====================================================
+   RESPONSIVE LAUNCH
+===================================================== */
+
+@media (max-width: 1200px) {
+  .launch-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gpu-options-grid,
+  .image-options-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =====================================================
+   SIDEBAR HEADER
+===================================================== */
+
+.sidebar-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-inv);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+
+/* =====================================================
+   SIDEBAR CLOSE BUTTON
+===================================================== */
+
+.sidebar-close-btn {
+  background: var(--ink-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-inv-soft);
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.sidebar-close-btn:hover {
+  background: rgba(23, 164, 104, 0.15);
+  color: var(--gem-bright);
+}
+
+
+/* =====================================================
+   SIDEBAR COLLAPSE
+===================================================== */
+
+/*
+   NORMAL:
+   Sidebar berada di kiri pada x = 0
+
+   COLLAPSED:
+   Sidebar bergerak keluar sebanyak 260px ke kiri.
+*/
+
+.sidebar {
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+
+/* Sidebar tutup */
+.app-layout.sidebar-collapsed .sidebar {
+  transform: translateX(-260px);
+}
+
+
+/* Main content bila sidebar tutup */
+.app-layout.sidebar-collapsed .main-content {
+  margin-left: 0;
+  width: 100%;
+  max-width: none;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.brand-logo {
+  width: 28px !important;
+  height: 28px !important;
+  object-fit: contain !important;
+  max-width: 28px !important;
+  max-height: 28px !important;
+}
+
+
+/* =====================================================
+   SIDEBAR BRAND FINAL
+===================================================== */
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-inv);
+  font-weight: 700;
+}
+
+/* =====================================================
+   RESPONSIVE MOBILE SIDEBAR (KHAS UNTUK TELEFON)
+===================================================== */
+@media (max-width: 768px) {
+    /* 1. Secara default di telefon, sidebar disembunyikan di sebelah kiri luar skrin */
+    .sidebar {
+        transform: translateX(-260px);
+        box-shadow: none;
+    }
+
+    /* 2. Bila butang ☰ ditekan (kelas 'sidebar-collapsed' dibuang / tidak aktif), 
+          sidebar meluncur masuk ke dalam skrin menutupi sebelah kiri (overlay) */
+    .app-layout:not(.sidebar-collapsed) .sidebar {
+        transform: translateX(0) !important;
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.7);
+        z-index: 9999;
+    }
+
+    /* 3. Kandungan utama di telefon sentiasa kekal penuh di belakang */
+    .app-layout .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+}
